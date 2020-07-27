@@ -76,7 +76,7 @@ function getTodoFromNode(node) {
 
 function deleteTodo(todo) {
   const allTodos = getAllTodos();
-  const todoIndex = allTodos.indexOf(todo);
+  const todoIndex = allTodos.findIndex((td) => td.id === todo.id);
   allTodos.splice(todoIndex, 1);
 
   updateTodo(allTodos);
@@ -103,7 +103,7 @@ todoDisplay.addEventListener('click', function () {
     todo.isComplete = event.target.checked;
 
     const allTodos = getAllTodos();
-    const todoIndex = allTodos.indexOf(todo);
+    const todoIndex = allTodos.findIndex((td) => td.id === todo.id);
     allTodos.splice(todoIndex, 1, todo);
 
     updateTodo(allTodos);
